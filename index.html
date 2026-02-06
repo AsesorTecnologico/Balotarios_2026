@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Balotario - Acceso a Recursos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9fc;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .theme-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #feb47b;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 5px solid #4a6491;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #4a6491;
+            background: #f0f5ff;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .card-icon {
+            background: #4a6491;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+        
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #4a6491, #2c3e50);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 5px 15px rgba(74, 100, 145, 0.2);
+        }
+        
+        .drive-btn:hover {
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 100, 145, 0.3);
+        }
+        
+        .drive-btn i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .instructions {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #ff7e5f;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .instructions h3 i {
+            margin-right: 10px;
+            color: #ff7e5f;
+        }
+        
+        .instructions p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="theme-icon">
+                <i class="fas fa-vote-yea"></i>
+            </div>
+            <h1>Control de Balotario</h1>
+            <p class="subtitle">Sistema de gestión de votaciones y procesos electorales. Acceda a los recursos esenciales a través de los siguientes enlaces a Google Drive.</p>
+        </header>
+        
+        <main class="content">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>PDF Solucionario de Balotario</h3>
+                <p>Solucionario completo de balotario, responsable publicaciones.</p>
+                <a href="https://drive.google.com/drive/folders/1OfszB9so6KrTjDTD7BqvY8rvJitVShVm?usp=drive_link" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> Acceder a Solucionarios
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Formularios de Balotario</h3>
+                <p>Consolidado de todos los Formularios del Periodo 2026.</p>
+                <a href="https://drive.google.com/drive/folders/1JQQGI-PrZse51RdsJxudSjwgTh1yscQV" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> Ver los Balotarios
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Enlaces de Balotarios</h3>
+                <p>Hoja de calculo la cual contiene todos los Balotarios del 2026.</p>
+                <a href="https://docs.google.com/spreadsheets/d/1vlQ0Fw7SlTOpjTZg5iP0ntToUQkpgfGijsxUyr2A8GU/edit?gid=0#gid=0" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> Recursos Balotarios
+                </a>
+            </div>
+        </main>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> Instrucciones de Uso</h3>
+            <p>Para acceder a los recursos del sistema de balotario:</p>
+            <ul>
+                <li>Haga clic en cualquiera de los botones de arriba para abrir la carpeta correspondiente en Google Drive</li>
+                <li>Asegúrese de tener una cuenta de Google <b>Saco Oliveros</b> para acceder a los documentos</li>
+                <li>Si necesita permisos adicionales, contacte al administrador del sistema</li>
+                <li>Los archivos están organizados por categorías y fechas para facilitar su localización</li>
+            </ul>
+            <p><strong>Nota:</strong> Los enlaces de ejemplo apuntan a carpetas genéricas. Reemplace las URLs con los enlaces reales a sus carpetas de Drive.</p>
+        </div>
+        
+        <footer>
+            <p>Sistema de Control de Balotario &copy; 2026 | Diseño optimizado para gestión de recursos electorales</p>
+        </footer>
+    </div>
+
+    <script>
+        // Añadir confirmación antes de salir del sitio (solo para demostración)
+        document.querySelectorAll('.drive-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // En un caso real, aquí irían los enlaces reales a Google Drive
+                // Para esta demostración, mostramos un mensaje
+                if(this.getAttribute('href').includes('ejemplo')) {
+                    e.preventDefault();
+                    alert('En una implementación real, este botón lo llevaría a la carpeta correspondiente en Google Drive.\n\nPara usar esta página, reemplace las URLs de ejemplo con sus enlaces reales a Drive.');
+                }
+            });
+        });
+        
+        // Efecto de aparición para las tarjetas
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>
