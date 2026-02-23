@@ -23,7 +23,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -234,36 +234,53 @@
         </header>
         
         <main class="content">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-                <h3>PDF Solucionario de Balotario</h3>
-                <p>Solucionario completo de balotario, responsable publicaciones.</p>
-                <a href="https://drive.google.com/drive/folders/1W2VgjPU9l53MSTQ0ZHixh-uVkXai-kAd" target="_blank" class="drive-btn">
-                    <i class="fab fa-google-drive"></i> Acceder a Solucionarios
-                </a>
-            </div>
+            <!-- Tarjeta 1: Solucionario -->
             
+            <!-- Tarjeta 2: Formularios 2026 -->
             <div class="card">
                 <div class="card-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <h3>Formularios de Balotario</h3>
+                <h3>Formularios de Balotario - Rolando</h3>
                 <p>Consolidado de todos los Formularios del Periodo 2026.</p>
                 <a href="https://drive.google.com/drive/folders/1JQQGI-PrZse51RdsJxudSjwgTh1yscQV" target="_blank" class="drive-btn">
                     <i class="fab fa-google-drive"></i> Ver los Balotarios
                 </a>
             </div>
             
+            <!-- Tarjeta 3: Hoja de cálculo de enlaces 2026 -->
             <div class="card">
                 <div class="card-icon">
                     <i class="fas fa-tools"></i>
                 </div>
                 <h3>Enlaces de Balotarios</h3>
-                <p>Hoja de calculo la cual contiene todos los Balotarios del 2026.</p>
+                <p>Hoja de cálculo que contiene todos los Balotarios del 2026.</p>
                 <a href="https://docs.google.com/spreadsheets/d/1vlQ0Fw7SlTOpjTZg5iP0ntToUQkpgfGijsxUyr2A8GU/edit?gid=0#gid=0" target="_blank" class="drive-btn">
                     <i class="fab fa-google-drive"></i> Recursos Balotarios
+                </a>
+            </div>
+            
+            <!-- NUEVA Tarjeta 4: Balotario 2025 (carpeta de Drive) -->
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>PDF de los Balotario 2025</h3>
+                <p>Acceso directo a la carpeta de Drive con todos los balotarios del año 2025.</p>
+                <a href="https://drive.google.com/drive/folders/1aC-COGVVTNWLMFVMp8upQmorvZAtdtbY" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> Ir a Balotario 2025
+                </a>
+            </div>
+            
+            <!-- NUEVA Tarjeta 5: Drive Balotario 2026 (carpeta general) -->
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>PDF de Drive Balotario 2026</h3>
+                <p>Carpeta principal de Drive con todos los recursos de balotario para el periodo 2026.</p>
+                <a href="https://drive.google.com/drive/folders/1xgB_SXhK7beXO4AvS9FHtKCFMUUXCe7q" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> Ir a Drive 2026
                 </a>
             </div>
         </main>
@@ -272,31 +289,19 @@
             <h3><i class="fas fa-info-circle"></i> Instrucciones de Uso</h3>
             <p>Para acceder a los recursos del sistema de balotario:</p>
             <ul>
-                <li>Haga clic en cualquiera de los botones de arriba para abrir la carpeta correspondiente en Google Drive</li>
-                <li>Asegúrese de tener una cuenta de Google <b>Saco Oliveros</b> para acceder a los documentos</li>
-                <li>Si necesita permisos adicionales, contacte al administrador del sistema</li>
-                <li>Los archivos están organizados por categorías y fechas para facilitar su localización</li>
+                <li>Haga clic en cualquiera de los botones de arriba para abrir la carpeta correspondiente en Google Drive.</li>
+                <li>Asegúrese de tener una cuenta de Google <b>Saco Oliveros</b> para acceder a los documentos.</li>
+                <li>Si necesita permisos adicionales, contacte al administrador del sistema.</li>
+                <li>Los archivos están organizados por categorías y fechas para facilitar su localización.</li>
             </ul>
         </div>
         
         <footer>
-            <p>Sistema de Control de Balotario &copy; 2026 | Diseño optimizado para gestión de Balotarios</p>
+            <p>Sistema de Control de Balotario &copy; 2025-2026 | Diseño optimizado para gestión de Balotarios</p>
         </footer>
     </div>
 
     <script>
-        // Añadir confirmación antes de salir del sitio (solo para demostración)
-        document.querySelectorAll('.drive-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // En un caso real, aquí irían los enlaces reales a Google Drive
-                // Para esta demostración, mostramos un mensaje
-                if(this.getAttribute('href').includes('ejemplo')) {
-                    e.preventDefault();
-                    alert('En una implementación real, este botón lo llevaría a la carpeta correspondiente en Google Drive.\n\nPara usar esta página, reemplace las URLs de ejemplo con sus enlaces reales a Drive.');
-                }
-            });
-        });
-        
         // Efecto de aparición para las tarjetas
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.card');
